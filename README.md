@@ -25,12 +25,13 @@ Get python [here](https://www.python.org/downloads/).
 * Wait for email that your export is ready (possibly hours or days)
 * Download to computer
 # Usage
-1. Put downloaded `.mbox` files in the `input` folder
-2. Additionally adjust settings
-3. Run program
-4. Wait for program to finish
+1. Clone or download repo
+2. Put downloaded `.mbox` files in the `input` folder
+3. Additionally adjust settings
+4. Run program
+5. Wait for program to finish
 6. Results are in file named `output.csv`
-5. Profit
+7. Profit
 # Features
 * Works on multiple files
 * Visual representation of file processing
@@ -43,6 +44,10 @@ Get python [here](https://www.python.org/downloads/).
     2. Sender's email 
     3. Domain
     4. First found message
+* Ignore `gmail.com` domain, to filter out all none services that contact you
+    * Configure in code, section noted with `#general CONFIG`
+        1. `gmail` 
+            * disable/enable ignoring of `gmail.com` domains
 * Additional result to be enabled: occurrence. Splits domains by `.`, saves how often all parts aper to allow you to better find your selves in the data. Results will be in `occurrence.csv`
     * Configure in code, section noted with `#occurrence CONFIG`, Config options:
         1. `occurrence`
@@ -51,7 +56,7 @@ Get python [here](https://www.python.org/downloads/).
             * enable/disable exclude all `.com` parts
         3. `sing`
             * enable/disable remove all parts that appear once
-    * For this output is also `.csv`, columns represent as follows:
+    * For this output format is also `.csv`, columns represent as follows:
         1. no.
         2. part string
         3. instance count

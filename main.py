@@ -6,6 +6,10 @@ import threading
 import time
 import random
 
+#general CONFIG
+#exclude/include gmail.com domain
+gmail = False
+
 #occurrence CONFIG
 #Disable/enable extra csv with occurrence of domain parts
 occurrence = True
@@ -76,17 +80,18 @@ def loading_animation():
     Displays loding bars wile file is loaded, bigger file longer load time
     """
     global loading
-    animations = [{"anim":["   ",".  ", "o. ", "0o.",")0o","()0","0()","o0(", ".o0"," .o", "  ."],"time":0.2},
-                  {'anim':["   ",".  ",".. ","..."],'time':0.4},
-                  {'anim':["-","\\","|","/"],'time':0.2},
-                  {'anim':["o0o","0o0"],'time':0.5},
-                  {'anim':['|  |',"\\  /","_  _"," /\\ ",' || '," /\\ ","_  _","\\  /"],'time':0.1},
-                  {'anim':["---",'\\--',"|--","/--","---","-\\-","-|-","-/-","---","--\\","--|","--/"],'time':0.1},
-                  {'anim':["=--","==-","===",">==","<>=","=<>","==<","-==","--=","---"],'time':0.2},
-                  {'anim':["+x+","x+x",],'time':0.2},
+    animations = [
+                #   {"anim":["   ",".  ", "o. ", "0o.",")0o","()0","0()","o0(", ".o0"," .o", "  ."],"time":0.2},
+                #   {'anim':["   ",".  ",".. ","..."],'time':0.4},
+                #   {'anim':["-","\\","|","/"],'time':0.2},
+                #   {'anim':["o0o","0o0"],'time':0.5},
+                #   {'anim':['|  |',"\\  /","_  _"," /\\ ",' || '," /\\ ","_  _","\\  /"],'time':0.1},
+                #   {'anim':["---",'\\--',"|--","/--","---","-\\-","-|-","-/-","---","--\\","--|","--/"],'time':0.1},
+                #   {'anim':["=--","==-","===",">==","<>=","=<>","==<","-==","--=","---"],'time':0.2},
+                #   {'anim':["+x+","x+x",],'time':0.2},
                   {'anim':[" <0/ "," <0--"," <o\\"," <o> "," <0> "," /0> ","--o "," \\o> "],'time':0.2},
-                  {'anim':['|||','/||','//|',"_//","__/","___","\\__","\\\\_","|\\\\","||\\"],'time':0.2},
-                  {'anim':["+x+","x+x",],'time':0.2},
+                #   {'anim':['|||','/||','//|',"_//","__/","___","\\__","\\\\_","|\\\\","||\\"],'time':0.2},
+                  {'anim':["_/‾","\\_/","‾\\_","/‾\\"],'time':0.2},
                  ]
     sel = random.choice(animations) 
     animation = sel["anim"]
@@ -189,6 +194,9 @@ def main(mboxs):
                 print(f"{get_time()}Loaded!                   ")
             if processing:
                 sender,email = extract_domain(message['From'])
+                if not gmail:
+                    if sender == "gmail.com":
+                        continue
                 a,remail = extract_domain(message['To'])
                 go = True
                 i += 1
