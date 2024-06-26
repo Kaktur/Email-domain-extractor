@@ -2,7 +2,7 @@
 Python script to extract all unique domains form incoming email addresses from a `.mbox` file (gmail export format) to find your accounts, outputs to `.csv`
 
 # Install
-To use this you are going to need `python` and some libraries (thay all shoud come instaled wit python)
+To use this you are going to need `python` and some libraries (that all should come installed with python)
 
 * mailbox
 * pandas
@@ -20,12 +20,13 @@ Get python [here](https://www.python.org/downloads/).
 * Locate and select only Gmail
 * Press on `All mail data included` and from what folders in your email you want to extract
 * Scroll to bottom press `Next step`
-* Select to what file sizes export should be spit (dont recommend more then 2GB)
+* Select to what file sizes export should be spit (I don't recommend more then 2GB)
 * Press `Create export`
 * Wait for email that your export is ready (possibly hours or days)
 * Download to computer
 # Usage
-1. Clone or download repo
+1. Clone or [download](https://github.com/Kaktur/Email-domain-extractor/archive/refs/heads/main.zip) repo
+    *  `clone https://github.com/Kaktur/Email-domain-extractor.git`
 2. Put downloaded `.mbox` files in the `input` folder
 3. Additionally adjust settings
 4. Run program
